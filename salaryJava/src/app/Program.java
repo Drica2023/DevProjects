@@ -4,7 +4,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Employee;
+import services.PensionService;
 import services.SalaryService;
+import services.TaxService;
 
 public class Program {
 
@@ -18,8 +20,12 @@ public class Program {
 		double grossSalary = sc.nextDouble();
 		
 	Employee employee = new Employee(name, grossSalary);
+	TaxService taxService = new TaxService();
+	PensionService pensionService = new PensionService();
 	
-	SalaryService salaryService = new SalaryService();
+	
+	
+	SalaryService salaryService = new SalaryService(taxService, pensionService);
 	
 	
 		
